@@ -13,7 +13,7 @@ collections: # A list of collections the CMS should be able to edit
     slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
-      - {label: "Titre", name: "titre", widget: "string", tagname: "h1"}
+      - {label: "Titre", name: "title", widget: "string", tagname: "h1"}
       - {label: "Description", name: "description", widget: "string"}
       - {label: "Durée", name: "duree", widget: "string"}
       - {label: "Date Publication", name: "date", widget: "datetime"}
