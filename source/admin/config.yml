@@ -3,7 +3,7 @@ backend:
   repo: mjaidi/free-cube # Path to your GitHub repository
   branch: master # Branch to update (master by default)
 
-publish_mode: editorial_workflow
+# publish_mode: editorial_workflow
 media_folder: "source/images/uploads" # Folder where user uploaded files should go
 
 collections: # A list of collections the CMS should be able to edit
@@ -23,4 +23,5 @@ collections: # A list of collections the CMS should be able to edit
       - label: "Image"
         name: "thumbnail"
         widget: "image"
+      - {label: "Publier?", name: "publish", widget: "boolean"}
   
