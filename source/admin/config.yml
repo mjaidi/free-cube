@@ -12,7 +12,6 @@ collections: # A list of collections the CMS should be able to edit
     folder: "source/projets" # The path to the folder where the documents are stored
     slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
     extension: "yml"
-    format: "yml"
     create: true # Allow users to create new documents in this collection
     # delete: true
     fields: # The fields each document in this collection have
