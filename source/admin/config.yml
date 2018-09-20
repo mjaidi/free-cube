@@ -23,5 +23,5 @@ collections: # A list of collections the CMS should be able to edit
       - label: "Image"
         name: "thumbnail"
         widget: "image"
-      - {label: "Publier?", name: "publish", widget: "boolean"}
+      - {label: "Publier?", name: "publish", widget: "boolean", default: true}
   
