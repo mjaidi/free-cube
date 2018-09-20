@@ -28,5 +28,5 @@ title: Home Page
 
 <br>
 <% data.info.each do |info| %>
-<%= info.title %>
+<%= info[1] if info[0] == "title" %>
 <% end %>
