@@ -17,6 +17,7 @@ title: Home Page
     <!-- use article.summary(250) if you have Nokogiri available to show just
          the first 250 characters -->
          <%= article.data[:description] %>
+         <%= image_tag(article.data[:thumbnail]) %>
   <% end %>       
 <% end %>
 
