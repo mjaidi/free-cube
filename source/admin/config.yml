@@ -27,3 +27,9 @@ collections: # A list of collections the CMS should be able to edit
         name: "publish"
         widget: "select"
         options: ["Oui", "Non"]
+  - name: "info"
+    label: "Basic Info"
+    file: "data/info.yml"
+    fields: 
+      - {label: Titre, name: title, widget: string}
+      - {label: Description, name: description, widget: markdown}

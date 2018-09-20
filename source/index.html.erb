@@ -25,3 +25,8 @@ title: Home Page
     <p><%= link_to 'Next page', next_page %></p>
   <% end %>
 <% end %>
+
+<br>
+<% data.info.each do |info| %>
+<%= info.title %>
+<% end %>
