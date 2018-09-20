@@ -12,7 +12,8 @@ collections: # A list of collections the CMS should be able to edit
     folder: "source/projets" # The path to the folder where the documents are stored
     slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
     create: true # Allow users to create new documents in this collection
-    # delete: true
+    delete: true
+    extension: "md.html.erb"
     fields: # The fields each document in this collection have
       - {label: "Titre", name: "title", widget: "string", tagname: "h1"}
       - {label: "Description", name: "description", widget: "string"}
