@@ -9,7 +9,7 @@ media_folder: "/images/uploads" # Folder where user uploaded files should go
 collections: # A list of collections the CMS should be able to edit
   - name: "projet" # Used in routes, ie.: /admin/collections/:slug/edit
     label: "Projet" # Used in the UI, ie.: "New Post"
-    folder: "source/projet" # The path to the folder where the documents are stored
+    folder: "source/projets" # The path to the folder where the documents are stored
     format: "yml"
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
