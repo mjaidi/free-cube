@@ -11,7 +11,17 @@ title: Home Page
   <% end %>
 <% end %>
 
-<% page_articles.each_with_index do |article, i| %>
+<% blog('projets').articles.each_with_index do |article, i| %>
+  <% if article.data[:publish] == "Oui" %>
+    <h2><%= link_to article.title, article %> <span><%= article.date.strftime('%b %e') %></span></h2>
+    <!-- use article.summary(250) if you have Nokogiri available to show just
+         the first 250 characters -->
+         <%= article.data[:description] %>
+         <%= image_tag(article.data[:thumbnail]) %>
+  <% end %>       
+<% end %>
+
+<% blog('reviews').articles.each_with_index do |article, i| %>
   <% if article.data[:publish] == "Oui" %>
     <h2><%= link_to article.title, article %> <span><%= article.date.strftime('%b %e') %></span></h2>
     <!-- use article.summary(250) if you have Nokogiri available to show just
