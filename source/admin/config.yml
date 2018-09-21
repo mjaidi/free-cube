@@ -19,7 +19,6 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Titre", name: "title", widget: "string", tagname: "h1"}
       - {label: "Description", name: "description", widget: "string"}
       - {label: "Durée", name: "duree", widget: "string"}
-      - {label: "Date Publication", name: "date", widget: "datetime"}
       - label: "Image"
         name: "thumbnail"
         widget: "image"
@@ -39,7 +38,6 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Titre", name: "title", widget: "string", tagname: "h1"}
       - {label: "Description", name: "description", widget: "string"}
       - {label: "Nom", name: "nom", widget: "string"}
-      - {label: "Date Publication", name: "date", widget: "datetime"}
       - label: "Image"
         name: "thumbnail"
         widget: "image"
@@ -47,7 +45,10 @@ collections: # A list of collections the CMS should be able to edit
         name: "publish"
         widget: "select"
         options: ["Oui", "Non"]
-      - {label: "Review Stars", name: "review", widget: "integer"}
+      - label: "Review Starts"
+        name: "review"
+        widget: "select"
+        options: [0,1,2,3,4,5]
   - label: Info
     name: info
     files:
