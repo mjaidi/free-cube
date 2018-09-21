@@ -19,6 +19,7 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Titre", name: "title", widget: "string", tagname: "h1"}
       - {label: "Description", name: "description", widget: "string"}
       - {label: "Durée", name: "duree", widget: "string"}
+      - {label: "Catégorie", name: "category", widget: "select", options: ["contenaires", "villa", "ammenagement", "temporaire"]}
       - label: "Image"
         name: "thumbnail"
         widget: "image"
