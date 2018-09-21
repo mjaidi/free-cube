@@ -25,3 +25,5 @@ gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
 
 # For feed.xml.builder
 gem "builder", "~> 3.0"
+gem 'less'
+gem 'therubyracer'
