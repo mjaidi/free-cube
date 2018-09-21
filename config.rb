@@ -8,6 +8,7 @@ page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
 page '/*.md', layout: false
+page 'index.html', layout: false
 
 configure :build do
   activate :minify_css

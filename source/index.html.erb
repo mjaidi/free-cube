@@ -8,7 +8,7 @@
 		<!-- For Resposive Device -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<title>BizPro || Responsive html5 template</title>
+		<title>Free Cube</title>
 
 		<!-- Favicon -->
 		<link rel="icon" type="image/png" sizes="56x56" href="images/fav-icon/icon.png">
@@ -44,7 +44,9 @@
 			-->
 			<header class="theme-main-header">
 				<div class="container">
-					<a href="index.html" class="logo float-left tran4s"><img src="images/logo/logo.png" alt="Logo"></a>
+					<a href="index.html" class="logo float-left tran4s"><img src="<% data.info.each do |info| %>
+						<%= info[1] if info[0] == 'logo'%>
+					<% end %>" alt="Logo" style="height: 50px; margin-bottom: 10px;"></a>
 					
 					<!-- ========================= Theme Feature Page Menu ======================= -->
 					<nav class="navbar float-right theme-main-menu one-page-menu">
@@ -60,18 +62,18 @@
 					   <div class="collapse navbar-collapse" id="navbar-collapse-1">
 					     <ul class="nav navbar-nav">
 					       	<li class="active"><a href="#home">HOME</a></li>
-							<li><a href="#about-us">ABOUT</a></li>
+							<li><a href="#about-us">A PROPOS</a></li>
 							<li><a href="#service-section">SERVICES</a></li>
-							<li><a href="#project-section">PORTFOLIO</a></li>
-							<li><a href="#team-section">TEAM</a></li>
-							<li><a href="#skill-section">Skill</a></li>
-							<li><a href="#our-client">CLIENTS</a></li>
-							<li><a href="#pricing-section">Pricing</a></li>
+							<li><a href="#project-section">PROJETS</a></li>
+							<li><a href="#team-section">EQUIPE</a></li>
+<!-- 							<li><a href="#skill-section">COMPETENCES</a></li>
+ -->							<li><a href="#our-client">CLIENTS</a></li>
+<!-- 							<li><a href="#pricing-section">Pricing</a></li>
 							<li class="dropdown-holder"><a href="#blog-section">BLOG</a>
 								<ul class="sub-menu">
 					       			<li><a href="blog-details.html" class="tran3s">Blog Details</a></li>
 					       		</ul>
-							</li>
+							</li> -->
 							<li><a href="#contact-section">CONTACT</a></li>
 					     </ul>
 					   </div><!-- /.navbar-collapse -->
@@ -90,11 +92,12 @@
 					<!-- START REVOLUTION SLIDER 5.0.7 auto mode -->
 						<div id="main-banner-slider" class="rev_slider video-slider" data-version="5.0.7">
 							<ul>
-
+								<% blog('projets').articles.each_with_index do |article,i| %>
+								<% if article.data[:publish] == "Oui" %>
 								<!-- SLIDE1  -->
-								<li data-index="rs-280" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default"  data-title="Title Goes Here" data-description="">
+								<li data-index="rs-<%= i %>" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default"  data-title="<%= article.data[:title] %>" data-description="">
 									<!-- MAIN IMAGE -->
-									<img src="<%= blog('projets').articles[1].data[:thumbnail]%>"  alt="image" class="rev-slidebg" data-bgparallax="3" data-bgposition="center center" data-duration="20000" data-ease="Linear.easeNone" data-kenburns="on" data-no-retina="" data-offsetend="0 0" data-offsetstart="0 0" data-rotateend="0" data-rotatestart="0" data-scaleend="100" data-scalestart="140">
+									<img src="<%= article.data[:thumbnail]%>"  alt="image" class="rev-slidebg" data-bgparallax="3" data-bgposition="center center" data-duration="20000" data-ease="Linear.easeNone" data-kenburns="on" data-no-retina="" data-offsetend="0 0" data-offsetstart="0 0" data-rotateend="0" data-rotatestart="0" data-scaleend="100" data-scalestart="140">
 									<!-- LAYERS -->
 
 									<!-- LAYER NR. 1 -->
@@ -115,7 +118,7 @@
 										data-splitout="none" 
 										data-responsive_offset="on" 
 										style="z-index: 6; white-space: nowrap;">
-										<h1>HELLO WE'RE BizPro</h1>
+										<h1> <%= article.data[:title] %></h1>
 									</div>
 
 									<!-- LAYER NR. 2 -->
@@ -136,7 +139,7 @@
 										data-splitout="none" 
 										data-responsive_offset="on" 
 										style="z-index: 6; white-space: nowrap;">
-										<h6>Sub Head, Motto or Mission subtitle</h6>
+										<h6><%= article.data[:description] %></h6>
 									</div>
 
 
@@ -154,161 +157,13 @@
 										data-splitin="none" 
 										data-splitout="none" 
 										data-responsive_offset="on">
-										<a href="contact-us.html" class="project-button hvr-bounce-to-right">See Our Projects</a>
+										<a href="#project-section" class="project-button hvr-bounce-to-right">Voir Nos Projets</a>
 									</div>
 								
 								</li>
+								<% end %>	
+								<% end %>
 
-
-								<!-- SLIDE2  -->
-								<li data-index="rs-20" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="video/drinkwinecover.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Title Goes Here" data-description="">
-									<!-- MAIN IMAGE -->
-									<img src="video/drinkwinecover.jpg"  alt="image" class="rev-slidebg" data-bgparallax="3" data-bgposition="center center" data-duration="20000" data-ease="Linear.easeNone" data-kenburns="on" data-no-retina="" data-offsetend="0 0" data-offsetstart="0 0" data-rotateend="0" data-rotatestart="0" data-scaleend="100" data-scalestart="140">
-									<!-- LAYERS -->
-
-									<!-- BACKGROUND VIDEO LAYER -->
-									<div class="rs-background-video-layer" 
-										data-forcerewind="on" 
-										data-volume="mute" 
-										data-videowidth="100%" 
-										data-videoheight="100%" 
-										data-videomp4="video/Drink-Wine.mp4" 
-										data-videopreload="preload" 
-										data-videoloop="loopandnoslidestop" 
-										data-forceCover="1" 
-										data-aspectratio="16:9" 
-										data-autoplay="true" 
-										data-autoplayonlyfirsttime="false" 
-										data-nextslideatend="true" 
-									></div>
-
-									<!-- LAYER NR. 1 -->
-									<div class="tp-caption" 
-										data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-										data-y="['middle','middle','middle','middle']" data-voffset="['-58','-33','-33','-100']" 
-										data-width="none"
-										data-height="none"
-										data-whitespace="nowrap"
-										data-transform_idle="o:1;"
-							 
-										data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-										data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-										data-mask_in="x:0px;y:[100%];" 
-										data-mask_out="x:inherit;y:inherit;" 
-										data-start="1000" 
-										data-splitin="none" 
-										data-splitout="none" 
-										data-responsive_offset="on" 
-										style="z-index: 6; white-space: nowrap;">
-										<h1>HELLO WE'RE BizPro</h1>
-									</div>
-
-									<!-- LAYER NR. 2 -->
-									<div class="tp-caption" 
-										data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-										data-y="['middle','middle','middle','middle']" data-voffset="['-05','93','93','20']"
-										data-width="none"
-										data-height="none"
-										data-whitespace="nowrap"
-										data-transform_idle="o:1;"
-							 
-										data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-										data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-										data-mask_in="x:0px;y:[100%];" 
-										data-mask_out="x:inherit;y:inherit;" 
-										data-start="2000" 
-										data-splitin="none" 
-										data-splitout="none" 
-										data-responsive_offset="on" 
-										style="z-index: 6; white-space: nowrap;">
-										<h6>Sub Head, Motto or Mission subtitle</h6>
-									</div>
-
-
-									<!-- LAYER NR. 3 -->
-									<div class="tp-caption"
-										data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-										data-y="['middle','middle','middle','middle']" data-voffset="['52','185','185','105']"
-										data-transform_idle="o:1;"
-							 
-										data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-										data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-										data-mask_in="x:0px;y:[100%];" 
-										data-mask_out="x:inherit;y:inherit;" 
-										data-start="3000" 
-										data-splitin="none" 
-										data-splitout="none" 
-										data-responsive_offset="on">
-										<a href="contact-us.html" class="project-button hvr-bounce-to-right">See Our Projects</a>
-									</div>
-								</li>
-
-								<!-- SLIDE3  -->
-								<li data-index="rs-18" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="images/home/slide-2.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Title Goes Here" data-description="">
-									<!-- MAIN IMAGE -->
-									<img src="images/home/slide-2.jpg"  alt="image" class="rev-slidebg" data-bgparallax="3" data-bgposition="center center" data-duration="20000" data-ease="Linear.easeNone" data-kenburns="on" data-no-retina="" data-offsetend="0 0" data-offsetstart="0 0" data-rotateend="0" data-rotatestart="0" data-scaleend="100" data-scalestart="140">
-									<!-- LAYERS -->
-
-									<!-- LAYER NR. 1 -->
-									<div class="tp-caption" 
-										data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-										data-y="['middle','middle','middle','middle']" data-voffset="['-58','-33','-33','-100']" 
-										data-width="none"
-										data-height="none"
-										data-whitespace="nowrap"
-										data-transform_idle="o:1;"
-							 
-										data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-										data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-										data-mask_in="x:0px;y:[100%];" 
-										data-mask_out="x:inherit;y:inherit;" 
-										data-start="1000" 
-										data-splitin="none" 
-										data-splitout="none" 
-										data-responsive_offset="on" 
-										style="z-index: 6; white-space: nowrap;">
-										<h1>HELLO WE'RE BizPro</h1>
-									</div>
-
-									<!-- LAYER NR. 2 -->
-									<div class="tp-caption" 
-										data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-										data-y="['middle','middle','middle','middle']" data-voffset="['-05','93','93','20']"
-										data-width="none"
-										data-height="none"
-										data-whitespace="nowrap"
-										data-transform_idle="o:1;"
-							 
-										data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-										data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-										data-mask_in="x:0px;y:[100%];" 
-										data-mask_out="x:inherit;y:inherit;" 
-										data-start="2000" 
-										data-splitin="none" 
-										data-splitout="none" 
-										data-responsive_offset="on" 
-										style="z-index: 6; white-space: nowrap;">
-										<h6>Sub Head, Motto or Mission subtitle</h6>
-									</div>
-
-
-									<!-- LAYER NR. 3 -->
-									<div class="tp-caption"
-										data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-										data-y="['middle','middle','middle','middle']" data-voffset="['52','185','185','105']"
-										data-transform_idle="o:1;"
-							 
-										data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-										data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-										data-mask_in="x:0px;y:[100%];" 
-										data-mask_out="x:inherit;y:inherit;" 
-										data-start="3000" 
-										data-splitin="none" 
-										data-splitout="none" 
-										data-responsive_offset="on">
-										<a href="contact-us.html" class="project-button hvr-bounce-to-right">See Our Projects</a>
-									</div>
-								</li>
 							</ul>	
 						</div>
 					</div><!-- END REVOLUTION SLIDER -->
@@ -324,8 +179,10 @@
 			<section id="about-us">
 				<div class="container">
 					<div class="theme-title">
-						<h2>ABOUT OUR BIZPRO</h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.</p>
+						<% data.info.each do |info| %>
+							<%= "<h2> #{info[1]}</h2>" if info[0] == 'title'%>
+							<%= "<p> #{info[1]}</p>" if info[0] == 'description'%>
+						<% end %>
 					</div> <!-- /.theme-title -->
 
 					<div class="row">
@@ -334,31 +191,37 @@
 								<div class="icon round-border tran3s">
 									<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 								</div>
-								<h5><a href="#" class="tran3s">Web Development</a></h5>
-								<p>Lorem ipsum dolor sit amet, consect et adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-								<a href="#" class="more tran3s hvr-bounce-to-right">More Details</a>
+								<h5><a href="#" class="tran3s">Suivi de Chantier</a></h5>
+									<% data.info.each do |info| %>
+										<%= "<p> #{info[1]}</p>" if info[0] == 'main-chantier'%>
+									<% end %>
+<!-- 								<a href="#" class="more tran3s hvr-bounce-to-right">More Details</a> -->
 							</div> <!-- /.single-about-content -->
 						</div> <!-- /.col -->
 
 						<div class="col-lg-3 col-md-3 col-sm-6">
 							<div class="single-about-content">
 								<div class="icon round-border tran3s">
-									<i class="fa fa-camera" aria-hidden="true"></i>
+									<i class="fas fa-building" aria-hidden="true"></i>
 								</div>
-								<h5><a href="#" class="tran3s">PHOTOGRAPHY</a></h5>
-								<p>Lorem ipsum dolor sit amet, consect et adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-								<a href="#" class="more tran3s hvr-bounce-to-right">More Details</a>
+								<h5><a href="#" class="tran3s">Construction</a></h5>
+									<% data.info.each do |info| %>
+										<%= "<p> #{info[1]}</p>" if info[0] == 'main-construction'%>
+									<% end %>
+<!-- 								<a href="#" class="more tran3s hvr-bounce-to-right">More Details</a> -->
 							</div> <!-- /.single-about-content -->
 						</div> <!-- /.col -->
 
 						<div class="col-lg-3 col-md-3 col-sm-6">
 							<div class="single-about-content">
 								<div class="icon round-border tran3s">
-									<i class="fa fa-life-ring" aria-hidden="true"></i>
+									<i class="fas fa-container-storage" aria-hidden="true"></i>
 								</div>
-								<h5><a href="#" class="tran3s">Digital Media</a></h5>
-								<p>Lorem ipsum dolor sit amet, consect et adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-								<a href="#" class="more tran3s hvr-bounce-to-right">More Details</a>
+								<h5><a href="#" class="tran3s">Contenaires</a></h5>
+										<% data.info.each do |info| %>
+										<%= "<p> #{info[1]}</p>" if info[0] == 'main-contenaires'%>
+									<% end %>
+<!-- 								<a href="#" class="more tran3s hvr-bounce-to-right">More Details</a> -->
 							</div> <!-- /.single-about-content -->
 						</div> <!-- /.col -->
 
@@ -367,9 +230,11 @@
 								<div class="icon round-border tran3s">
 									<i class="fa fa-line-chart" aria-hidden="true"></i>
 								</div>
-								<h5><a href="#" class="tran3s">Online Marketing</a></h5>
-								<p>Lorem ipsum dolor sit amet, consect et adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-								<a href="#" class="more tran3s hvr-bounce-to-right">More Details</a>
+								<h5><a href="#" class="tran3s">Conception</a></h5>
+									<% data.info.each do |info| %>
+										<%= "<p> #{info[1]}</p>" if info[0] == 'main-conseil'%>
+									<% end %>
+<!-- 								<a href="#" class="more tran3s hvr-bounce-to-right">More Details</a> -->
 							</div> <!-- /.single-about-content -->
 						</div> <!-- /.col -->
 					</div> <!-- /.row -->
@@ -463,7 +328,7 @@
 			<div id="project-section">
 				<div class="container">
 					<div class="theme-title">
-						<h2>OUR AWESOME PROJECTS</h2>
+						<h2>Tous Nos Projets</h2>
 						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.</p>
 					</div> <!-- /.theme-title -->
 
@@ -738,74 +603,7 @@
 
 
 
-			<!--
-			=====================================================
-				Skill Section
-			=====================================================
-			-->
-			<div id="skill-section">
-				<div class="container">
-					<div class="clear-fix">
-						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-							<div class="img"><img src="images/home/2.jpg" alt="Image"></div>
-						</div> <!-- /.col- -->
-
-						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-							<div class="skills-progress skills">
-								<div class="habilidades_contenedor">
-							        <div class="codeconSkills">
-							            <div class="codeconSkillbar">
-							            	<div class="skill-text">
-							            		<span class="codeconSkillArea">Web Development</span>
-							            	</div>
-							                <div class="skillBar" data-percent="89%">
-							                	<span class="PercentText">89%</span>
-							                </div>
-							            </div>
-							            <div class="codeconSkillbar">
-							            	<div class="skill-text">
-							            		<span class="codeconSkillArea ">Online Marketing</span>
-							                    
-							            	</div>
-								            <div class="skillBar" data-percent="58%">
-								                <span class="PercentText">58%</span>
-								            </div>
-							            </div>
-								        <div class="codeconSkillbar">
-								        	<div class="skill-text">
-							            		<span class="codeconSkillArea">Digital Media</span>
-							                    
-							            	</div>
-								            <div class="skillBar" data-percent="49%">
-								                <span class="PercentText">49%</span>
-								            </div>
-								        </div>
-								        <div class="codeconSkillbar">
-								        	<div class="skill-text">
-							            		<span class="codeconSkillArea">Photography</span>
-							                    
-							            	</div>
-								            <div class="skillBar" data-percent="76%">
-								                <span class="PercentText">76%</span>
-								            </div>
-								        </div>
-								        <div class="codeconSkillbar">
-								        	<div class="skill-text">
-							            		<span class="codeconSkillArea">Creative Design</span>
-							                    
-							            	</div>
-								            <div class="skillBar" data-percent="64%">
-								                <span class="PercentText ">64%</span>
-								            </div>
-								        </div>
-							    	</div> <!-- /.codeconSkills -->
-							    </div> <!-- /.habilidades_contenedor -->
-							</div> <!-- /.skills-progress -->
-						</div>
-					</div> <!-- /.clear-fix -->
-				</div> <!-- /.container -->
-			</div> <!-- /#skill-section -->
-
+			
 
 
 			<!--
@@ -820,147 +618,32 @@
 						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.</p>
 					</div> <!-- /.theme-title -->
 
-					<div class="client-slider">
-						<div class="item">
-							<img src="images/home/c1.jpg" alt="Client">
-							<p>Our successful construction approach is based on aggressive subcontractor administration, employ-ment of competent personnel, accurate schedule control, quality control and cost control. We employ only qualified subcontractors who share our goal in creating quality projects.</p>
-							<h6>- Spryte Loriano -</h6>
-						</div> <!-- /.item -->
-						<div class="item">
-							<img src="images/home/c2.jpg" alt="Client">
-							<p>Our successful construction approach is based on aggressive subcontractor administration, employ-ment of competent personnel, accurate schedule control, quality control and cost control. We employ only qualified subcontractors who share our goal in creating quality projects.</p>
-							<h6>- Spryte Loriano -</h6>
-						</div> <!-- /.item -->
-						<div class="item">
-							<img src="images/home/c3.jpg" alt="Client">
-							<p>Our successful construction approach is based on aggressive subcontractor administration, employ-ment of competent personnel, accurate schedule control, quality control and cost control. We employ only qualified subcontractors who share our goal in creating quality projects.</p>
-							<h6>- Spryte Loriano -</h6>
-						</div> <!-- /.item -->
+						<div class="client-slider">
+
+								<% 3.times do %>
+								<% blog('reviews').articles.each do |article| %>
+								  <% if article.data[:publish] == "Oui" %>
+										<div class="item ">
+											<img src="<%= article.data[:thumbnail] %>" alt="Client">
+											<p> <%= article.data[:description] %></p>
+											<h6>- <%= article.data[:nom] %> -</h6>
+											<h6>
+												<% article.data[:review].times do %>
+													<i class="fa fa-star"></i>
+												<% end %>
+											</h6>
+										</div> <!-- /.item -->
+								  <% end %>       
+								<% end %>
+								<% end %>
+
+
+						
+
+
 					</div> <!-- /.client-slider -->
 				</div> <!-- /.container -->
 			</div> <!-- /#our-client -->
-
-			
-
-			<!--
-			=====================================================
-				Pricing Section
-			=====================================================
-			-->
-			<div id="pricing-section">
-				<div class="container">
-					<div class="clear-fix">
-						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-							<div class="single-price-table hvr-float-shadow">
-								<h4>Basic</h4>
-								<p>The best to start</p>
-								<strong class="color1">$9.99 <span>/monthly</span></strong>
-								<ul>
-									<li>3,600 Keywords</li>
-									<li>50 Social Accounts</li>
-									<li>25 Analytics Campaigns</li>
-									<li>45 Email Accounts</li>
-									<li>24/7 Support</li>
-								</ul>
-								<a href="#" class="tran3s p-color-bg">BUY IT NOW</a>
-							</div> <!-- /.single-price-table -->
-						</div> <!-- /.col -->
-
-						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-							<div class="single-price-table hvr-float-shadow">
-								<h4>Advanced</h4>
-								<p>The best to start</p>
-								<strong class="color2">$39.99 <span>/monthly</span></strong>
-								<ul>
-									<li>3,600 Keywords</li>
-									<li>50 Social Accounts</li>
-									<li>25 Analytics Campaigns</li>
-									<li>45 Email Accounts</li>
-									<li>24/7 Support</li>
-								</ul>
-								<a href="#" class="tran3s p-color-bg">BUY IT NOW</a>
-							</div> <!-- /.single-price-table -->
-						</div> <!-- /.col -->
-
-						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-							<div class="single-price-table hvr-float-shadow">
-								<h4>PREMIUM</h4>
-								<p>The best to start</p>
-								<strong class="color3">$59.99 <span>/monthly</span></strong>
-								<ul>
-									<li>3,600 Keywords</li>
-									<li>50 Social Accounts</li>
-									<li>25 Analytics Campaigns</li>
-									<li>45 Email Accounts</li>
-									<li>24/7 Support</li>
-								</ul>
-								<a href="#" class="tran3s p-color-bg">BUY IT NOW</a>
-							</div> <!-- /.single-price-table -->
-						</div> <!-- /.col -->
-					</div>
-				</div> <!-- /.container -->
-			</div> <!-- /#pricing-section -->
-
-
-
-			<!--
-			=====================================================
-				Blog Section
-			=====================================================
-			-->
-			<div id="blog-section">
-				<div class="container">
-					<div class="theme-title">
-						<h2>OUR LATEST Blog</h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.</p>
-					</div> <!-- /.theme-title -->
-
-					<div class="clear-fix">
-						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-							<div class="single-news-item">
-								<div class="img"><img src="images/blog/1.jpg" alt="Image">
-									<a href="blog-details.html" class="opacity tran4s"><i class="fa fa-link" aria-hidden="true"></i></a>
-								</div> <!-- /.img -->
-
-								<div class="post">
-									<h6><a href="blog-details.html" class="tran3s">Playback: Akufo-Addo speaks to business community</a></h6>
-									<a href="blog-details.html">Posted by <span class="p-color">admin</span>  at 04 Feb, 2017</a>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis iaculis velit in tristique. Curabitur ac urna urna sed accumsan... <a href="blog-details.html" class="tran3s">Read More</a></p>
-								</div> <!-- /.post -->
-							</div> <!-- /.single-news-item -->
-						</div> <!-- /.col- -->
-
-						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-							<div class="single-news-item">
-								<div class="img"><img src="images/blog/2.jpg" alt="Image">
-									<a href="blog-details.html" class="opacity tran4s"><i class="fa fa-link" aria-hidden="true"></i></a>
-								</div> <!-- /.img -->
-
-								<div class="post">
-									<h6><a href="blog-details.html" class="tran3s">Playback: Akufo-Addo speaks to business community</a></h6>
-									<a href="blog-details.html">Posted by <span class="p-color">admin</span>  at 04 Feb, 2017</a>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis iaculis velit in tristique. Curabitur ac urna urna sed accumsan... <a href="blog-details.html" class="tran3s">Read More</a></p>
-								</div> <!-- /.post -->
-							</div> <!-- /.single-news-item -->
-						</div> <!-- /.col- -->
-
-						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-							<div class="single-news-item">
-								<div class="img"><img src="images/blog/3.jpg" alt="Image">
-									<a href="blog-details.html" class="opacity tran4s"><i class="fa fa-link" aria-hidden="true"></i></a>
-								</div> <!-- /.img -->
-
-								<div class="post">
-									<h6><a href="blog-details.html" class="tran3s">Playback: Akufo-Addo speaks to business community</a></h6>
-									<a href="blog-details.html">Posted by <span class="p-color">admin</span>  at 04 Feb, 2017</a>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis iaculis velit in tristique. Curabitur ac urna urna sed accumsan... <a href="blog-details.html" class="tran3s">Read More</a></p>
-								</div> <!-- /.post -->
-							</div> <!-- /.single-news-item -->
-						</div> <!-- /.col- -->
-					</div> <!-- /.clear-fix -->
-				</div> <!-- /.container -->
-			</div> <!-- /#blog-section -->
-
 
 
 			<!--
@@ -1103,7 +786,7 @@
 						<li><a href="#" class="tran3s round-border"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
 						<li><a href="#" class="tran3s round-border"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
 					</ul>
-					<p>Copyright @2018 All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+<!-- 					<p>Copyright @2018 All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p> -->
 				</div>
 			</footer>
 

@@ -57,5 +57,8 @@ collections: # A list of collections the CMS should be able to edit
         fields:
           - {label: Titre, name: title, widget: string}
           - {label: Description, name: description, widget: markdown}
-          - {label: Titre Principale Landing, name: main-tag, widget: markdown}
-          - {label: Sous Titre Landing, name: main-subtitle, widget: markdown}
+          - {label: Description construction, name: main-construction, widget: markdown}
+          - {label: Description suivi de chantier, name: main-chantier, widget: markdown}
+          - {label: Description contenaires, name: main-contenaires, widget: markdown}
+          - {label: Description conseil, name: main-conseil, widget: markdown}
+          - {label: Logo, name: logo, widget: image}

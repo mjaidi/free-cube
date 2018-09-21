@@ -1,7 +1,7 @@
 ---
 title: Test
-description: test review 1
-nom: majid
+description: the service was incredible
+nom: Majid
 date: 
 thumbnail: /imgs/uploads/index.jpeg
 review: 5
